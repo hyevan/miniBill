@@ -9,7 +9,7 @@ RUN if [ -n "$NPM_REGISTRY" ]; then npm config set registry "$NPM_REGISTRY"; fi
 RUN npm install
 COPY web/ ./
 COPY scripts/ /app/scripts/
-RUN npm run build
+RUN npx next build
 
 # Build backend
 FROM ${IMAGE_PREFIX}golang:1.22-alpine AS builder
