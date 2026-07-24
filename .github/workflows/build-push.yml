@@ -33,7 +33,3 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ghcr.io/${{ github.repository_owner }}/minibill:latest
-
-      - name: Make package public
-        run: |
-          curl -s -X PATCH             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}"             -H "Accept: application/vnd.github+json"             -H "Content-Type: application/json"             -d '{"visibility":"public"}'             "https://api.github.com/user/packages/container/minibill/visibility"
